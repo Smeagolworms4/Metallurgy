@@ -15,6 +15,8 @@ public class TileEntityMintRenderer extends TileEntitySpecialRenderer
     private final ResourceLocation texture = new ResourceLocation("Metallurgy:textures/blocks/machines/mint/Mint.png");
     private final ResourceLocation textureHead = new ResourceLocation("Metallurgy:textures/blocks/machines/mint/MintHead.png");
 
+    private ModelMintHead mintHead;
+
     @Override
     public void renderTileEntityAt(TileEntity var1, double var2, double var4, double var6, float var8)
     {
@@ -66,7 +68,11 @@ public class TileEntityMintRenderer extends TileEntitySpecialRenderer
         ModelMint var14;
 
         var14 = mintModel;
-        final ModelMintHead mintHead = new ModelMintHead();
+        if(mintHead == null)
+        {
+            mintHead = new ModelMintHead();
+        }
+
         // this.bindTextureByName("/mods/Metallurgy/textures/blocks/machines/mint/Mint.png");
         Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 

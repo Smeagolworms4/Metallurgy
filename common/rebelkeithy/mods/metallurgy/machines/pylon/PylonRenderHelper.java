@@ -6,8 +6,12 @@ import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
+import java.util.HashMap;
+
 public class PylonRenderHelper implements ISimpleBlockRenderingHandler
 {
+
+    private static HashMap<Integer, TileEntityPylon> tileEntity;
 
     @Override
     public int getRenderId()
@@ -18,9 +22,21 @@ public class PylonRenderHelper implements ISimpleBlockRenderingHandler
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer)
     {
-        final TileEntityPylon te = new TileEntityPylon();
-        te.setType(metadata);
-        TileEntityRenderer.instance.renderTileEntityAt(te, 0.0D, 0.0D, 0.0D, 0.0F);
+        if(tileEntity == null)
+        {
+            tileEntity = new HashMap<Integer, TileEntityPylon>();
+        }
+
+        TileEntityPylon pylon = tileEntity.get(metadata);
+
+        if(pylon == null)
+        {
+            pylon = new TileEntityPylon();
+            pylon.setType(metadata);
+            tileEntity.put(metadata, pylon);
+        }
+
+        TileEntityRenderer.instance.renderTileEntityAt(pylon, 0.0D, 0.0D, 0.0D, 0.0F);
     }
 
     @Override

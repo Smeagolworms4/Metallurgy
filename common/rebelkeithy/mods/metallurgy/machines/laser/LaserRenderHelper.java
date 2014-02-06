@@ -9,6 +9,8 @@ import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 public class LaserRenderHelper implements ISimpleBlockRenderingHandler
 {
 
+    private static TileEntityLaser tileEntity;
+
     @Override
     public int getRenderId()
     {
@@ -18,8 +20,12 @@ public class LaserRenderHelper implements ISimpleBlockRenderingHandler
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer)
     {
-        final TileEntityLaser te = new TileEntityLaser(0);
-        TileEntityRenderer.instance.renderTileEntityAt(te, 0.0D, 0.0D, 0.0D, 0.0F);
+        if(tileEntity == null)
+        {
+            tileEntity = new TileEntityLaser(0);
+        }
+
+        TileEntityRenderer.instance.renderTileEntityAt(tileEntity, 0.0D, 0.0D, 0.0D, 0.0F);
     }
 
     @Override

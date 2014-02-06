@@ -97,8 +97,10 @@
 	</target>
 
 	<!-- Download necessary files -->
-	<target name="download-files" depends="download-forge">
+	<target name="download-files">
 		<get src="https://github.com/TeamMetallurgy/KeithyUtils/archive/master.zip" dest="${download.dir}"/>
+		<get src="http://build.technicpack.net/job/Inventory-Tweaks/77/artifact/build/out/InventoryTweaks-api-MC1.6.2-1.56-b77.jar" dest="${download.dir}"/>
+		<antcall target="download-forge"/> 
 	</target>
 
 	<!-- Download forge (if it doesn't exist) -->
@@ -111,6 +113,9 @@
 		
 		<delete dir="keithyutils" failonerror="false"/>
 		<unzip dest="keithyutils" src="${download.dir}/master.zip"/>
+		
+		<delete dir="${libs.dir}" failonerror="false"/>
+		<unzip dest="${libs.dir}" src="${download.dir}/InventoryTweaks-api-MC1.6.2-1.56-b77.jar"/>
 		
 	</target>
 	

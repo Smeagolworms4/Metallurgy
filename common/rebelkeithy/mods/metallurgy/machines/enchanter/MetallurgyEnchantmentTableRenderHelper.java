@@ -8,6 +8,7 @@ import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class MetallurgyEnchantmentTableRenderHelper implements ISimpleBlockRenderingHandler
 {
+    private static TileEntityMetallurgyEnchantmentTable tileEntity;
 
     @Override
     public int getRenderId()
@@ -19,9 +20,12 @@ public class MetallurgyEnchantmentTableRenderHelper implements ISimpleBlockRende
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer)
     {
-        // TODO Auto-generated method stub
-        final TileEntityMetallurgyEnchantmentTable tec = new TileEntityMetallurgyEnchantmentTable();
-        TileEntityRenderer.instance.renderTileEntityAt(tec, 0.0D, 0.0D, 0.0D, 0.0F);
+        if(tileEntity == null)
+        {
+            tileEntity = new TileEntityMetallurgyEnchantmentTable();
+        }
+
+        TileEntityRenderer.instance.renderTileEntityAt(tileEntity, 0.0D, 0.0D, 0.0D, 0.0F);
     }
 
     @Override

@@ -9,6 +9,8 @@ import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class MintRenderHelper implements ISimpleBlockRenderingHandler
 {
+    private static TileEntityMint tileEntity;
+
     @Override
     public int getRenderId()
     {
@@ -19,9 +21,12 @@ public class MintRenderHelper implements ISimpleBlockRenderingHandler
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer)
     {
-        // TODO Auto-generated method stub
-        final TileEntityMint tem = new TileEntityMint();
-        TileEntityRenderer.instance.renderTileEntityAt(tem, 0.0D, 0.0D, 0.0D, 0.0F);
+        if(tileEntity == null)
+        {
+            tileEntity = new TileEntityMint();
+        }
+
+        TileEntityRenderer.instance.renderTileEntityAt(tileEntity, 0.0D, 0.0D, 0.0D, 0.0F);
     }
 
     @Override

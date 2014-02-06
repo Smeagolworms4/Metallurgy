@@ -17,4 +17,4 @@ Thanks for your time,
 
 Shadowclaimer
 
-[![Build Status](http://vps.aesireanempire.com:8080/job/Metallurgy/badge/icon)](http://vps.aesireanempire.com:8080/job/Metallurgy/)
+[![Build Status](http://vps.aesireanempire.com:8080/job/Metallurgy1.6/badge/icon)](http://vps.aesireanempire.com:8080/job/Metallurgy1.6/)

@@ -1,9 +1,9 @@
 package rebelkeithy.mods.metallurgy.machines.crusher;
 
+import cpw.mods.fml.common.Loader;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.src.ModLoader;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.oredict.OreDictionary.OreRegisterEvent;
 import net.minecraftforge.oredict.ShapedOreRecipe;
@@ -39,19 +39,19 @@ public class CrusherUpgradeRecipes
 
         if (event.Name.equals("ingotCopper"))
         {
-            ModLoader.addRecipe(new ItemStack(MetallurgyMachines.crusher, 1, 1), new Object[]
-            { "XXX", "XFX", "XXX", Character.valueOf('X'), event.Ore, Character.valueOf('F'), new ItemStack(MetallurgyMachines.crusher, 1, 0) });
+            GameRegistry.addRecipe(new ItemStack(MetallurgyMachines.crusher, 1, 1), new Object[]
+                    {"XXX", "XFX", "XXX", Character.valueOf('X'), event.Ore, Character.valueOf('F'), new ItemStack(MetallurgyMachines.crusher, 1, 0)});
         }
 
         if (event.Name.equals("ingotBronze"))
         {
-            ModLoader.addRecipe(new ItemStack(MetallurgyMachines.crusher, 1, 2), new Object[]
+            GameRegistry.addRecipe(new ItemStack(MetallurgyMachines.crusher, 1, 2), new Object[]
             { "XXX", "XFX", "XXX", Character.valueOf('X'), event.Ore, Character.valueOf('F'), new ItemStack(MetallurgyMachines.crusher, 1, 1) });
         }
 
         if (event.Name.equals("ingotSteel"))
         {
-            ModLoader.addRecipe(new ItemStack(MetallurgyMachines.crusher, 1, 4), new Object[]
+            GameRegistry.addRecipe(new ItemStack(MetallurgyMachines.crusher, 1, 4), new Object[]
             { "XXX", "XFX", "XXX", Character.valueOf('X'), event.Ore, Character.valueOf('F'), new ItemStack(MetallurgyMachines.crusher, 1, 3) });
         }
     }

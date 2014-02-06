@@ -542,7 +542,6 @@ public class TileEntityAbstractor extends TileEntityMachineBase implements ISide
             {
                 worldObj.spawnEntityInWorld(orb);
                 worldObj.updateEntity(orb);
-                worldObj.updateEntities();
             }
         }
     }

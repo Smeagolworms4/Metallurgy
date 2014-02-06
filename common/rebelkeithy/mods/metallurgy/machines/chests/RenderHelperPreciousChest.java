@@ -7,8 +7,12 @@ import net.minecraft.world.IBlockAccess;
 import rebelkeithy.mods.metallurgy.machines.MetallurgyMachines;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
+import java.util.HashMap;
+
 public class RenderHelperPreciousChest implements ISimpleBlockRenderingHandler
 {
+    private static HashMap<Integer, TileEntityPreciousChest> tileEntity;
+
     @Override
     public int getRenderId()
     {
@@ -20,9 +24,23 @@ public class RenderHelperPreciousChest implements ISimpleBlockRenderingHandler
     public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer)
     {
         // TODO Auto-generated method stub
-        final TileEntityPreciousChest tec = new TileEntityPreciousChest();
-        tec.setType(metadata);
-        TileEntityRenderer.instance.renderTileEntityAt(tec, 0.0D, 0.0D, 0.0D, 0.0F);
+
+        if(tileEntity == null)
+        {
+            tileEntity = new HashMap<Integer, TileEntityPreciousChest>();
+        }
+
+        TileEntityPreciousChest chest = tileEntity.get(metadata);
+
+        if(chest == null)
+        {
+            chest = new TileEntityPreciousChest();
+            chest.setType(metadata);
+
+            tileEntity.put(metadata, chest);
+        }
+
+        TileEntityRenderer.instance.renderTileEntityAt(chest, 0.0D, 0.0D, 0.0D, 0.0F);
     }
 
     @Override

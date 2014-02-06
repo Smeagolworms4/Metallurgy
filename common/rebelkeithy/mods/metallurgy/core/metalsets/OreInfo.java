@@ -677,37 +677,44 @@ public class OreInfo implements IOreInfo, IWorldGenerator
 
         if (type.generates() && ore != null)
         {
-            LanguageRegistry.addName(new ItemStack(oreID, 1, oreMeta), name + " Ore");
+            registerName(new ItemStack(oreID, 1, oreMeta), name + " Ore");
         }
         if (block != null)
         {
-            LanguageRegistry.addName(new ItemStack(blockID, 1, blockMeta), name + " Block");
+            registerName(new ItemStack(blockID, 1, blockMeta), name + " Block");
         }
         if (brick != null)
         {
-            LanguageRegistry.addName(new ItemStack(brickID, 1, brickMeta), name + " Brick");
+            registerName(new ItemStack(brickID, 1, brickMeta), name + " Brick");
         }
 
         if (type != DROP)
         {
-            LanguageRegistry.addName(dust, name + " Dust");
-            LanguageRegistry.addName(ingot, name + " Ingot");
+            registerName(dust, name + " Dust");
+            registerName(ingot, name + " Ingot");
         }
 
         if (type != CATALYST && type != DROP)
         {
-            LanguageRegistry.addName(pickaxe, name + " Pickaxe");
-            LanguageRegistry.addName(shovel, name + " Shovel");
-            LanguageRegistry.addName(axe, name + " Axe");
-            LanguageRegistry.addName(hoe, name + " Hoe");
-            LanguageRegistry.addName(sword, name + " Sword");
+            registerName(pickaxe, name + " Pickaxe");
+            registerName(shovel, name + " Shovel");
+            registerName(axe, name + " Axe");
+            registerName(hoe, name + " Hoe");
+            registerName(sword, name + " Sword");
 
-            LanguageRegistry.addName(helmet, name + " Helmet");
-            LanguageRegistry.addName(chest, name + " Chestplate");
-            LanguageRegistry.addName(legs, name + " Legs");
-            LanguageRegistry.addName(boots, name + " Boots");
+            registerName(helmet, name + " Helmet");
+            registerName(chest, name + " Chestplate");
+            registerName(legs, name + " Legs");
+            registerName(boots, name + " Boots");
         }
     }
+
+	private void registerName(Object registee, String name) {
+		if(registee != null)
+		{
+			LanguageRegistry.addName(registee, name + " name");
+		}
+	}
 
     public void setLevels()
     {

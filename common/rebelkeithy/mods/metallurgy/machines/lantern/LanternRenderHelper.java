@@ -7,8 +7,11 @@ import net.minecraft.world.IBlockAccess;
 import rebelkeithy.mods.metallurgy.machines.MetallurgyMachines;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
+import java.util.HashMap;
+
 public class LanternRenderHelper implements ISimpleBlockRenderingHandler
 {
+    private static HashMap<Integer, TileEntityLantern> tileEntity;
 
     @Override
     public int getRenderId()
@@ -19,8 +22,21 @@ public class LanternRenderHelper implements ISimpleBlockRenderingHandler
     @Override
     public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer)
     {
-        final TileEntityLantern tec = new TileEntityLantern(metadata);
-        TileEntityRenderer.instance.renderTileEntityAt(tec, 0.0D, 0.0D, 0.0D, 0.0F);
+        if(tileEntity == null)
+        {
+            tileEntity = new HashMap<Integer, TileEntityLantern>();
+        }
+
+        TileEntityLantern lantern = tileEntity.get(metadata);
+
+        if(lantern == null)
+        {
+            lantern = new TileEntityLantern(metadata);
+            tileEntity.put(metadata, lantern);
+
+        }
+
+        TileEntityRenderer.instance.renderTileEntityAt(lantern, 0.0D, 0.0D, 0.0D, 0.0F);
     }
 
     @Override
