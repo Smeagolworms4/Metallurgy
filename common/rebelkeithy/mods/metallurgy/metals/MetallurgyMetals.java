@@ -304,6 +304,7 @@ public class MetallurgyMetals
 
         id = utilityConfig.get("Item IDs", "Magnesium Igniter", 29007).getInt();
         magnesiumIgniter = new ItemIgniter(id).setMaxDamage(128).setMaxStackSize(1).setTextureName("Metallurgy:Utility/Igniter").setUnlocalizedName("Metallurgy:Utility/Igniter").setCreativeTab(utilityTab);
+        GameRegistry.registerItem(magnesiumIgniter, magnesiumIgniter.getUnlocalizedName());
         LanguageRegistry.addName(magnesiumIgniter, "Magnesium Igniter");
         if (utilityConfig.get("Recipes", "Enable Magnesium Igniter", true).getBoolean(true))
         {
@@ -312,6 +313,7 @@ public class MetallurgyMetals
 
         id = utilityConfig.get("Item IDs", "Match", 29008).getInt();
         match = new ItemIgniter(id).setMaxDamage(1).setMaxStackSize(64).setTextureName("Metallurgy:Utility/Match").setUnlocalizedName("Metallurgy:Utility/Match").setCreativeTab(utilityTab);
+        GameRegistry.registerItem(match, match.getUnlocalizedName());
         LanguageRegistry.addName(match, "Match");
         if (utilityConfig.get("Recipes", "Enable Match", true).getBoolean(true))
         {
@@ -320,6 +322,7 @@ public class MetallurgyMetals
 
         id = utilityConfig.get("Item IDs", "Fertilizer", 29009).getInt();
         fertilizer = new ItemFertilizer(id).setTextureName("Metallurgy:Utility/Fertilizer").setUnlocalizedName("Metallurgy:Utility/Fertilizer").setCreativeTab(utilityTab);
+        GameRegistry.registerItem(fertilizer, fertilizer.getUnlocalizedName());
         LanguageRegistry.addName(fertilizer, "Fertilizer");
         if (utilityConfig.get("Recipes", "Enable Fertilizer", true).getBoolean(true))
         {
@@ -332,6 +335,7 @@ public class MetallurgyMetals
 
         id = utilityConfig.get("Item IDs", "Tar", 29010).getInt();
         tar = new ItemMetallurgy(id).setTextureName("Metallurgy:Utility/Tar").setUnlocalizedName("Metallurgy:Utility/Tar").setCreativeTab(utilityTab);
+        GameRegistry.registerItem(tar, tar.getUnlocalizedName());
         LanguageRegistry.addName(tar, "Tar");
         OreDictionary.registerOre("itemTar", tar);
         GameRegistry.addSmelting(MetalInfoDatabase.getItem("Bitumen").itemID, new ItemStack(tar), 0.1F);
@@ -362,6 +366,7 @@ public class MetallurgyMetals
         if (oreFinderEnabled)
         {
             debug = new ItemOreFinder(oreFinderID).setUnlocalizedName("stick").setCreativeTab(CreativeTabs.tabTools);
+            GameRegistry.registerItem(debug, debug.getUnlocalizedName());
         }
 
         if (fantasySet.getOreInfo("Atral Silver").ore != null)
@@ -611,11 +616,11 @@ public class MetallurgyMetals
         enderSet = new MetalSet("Ender", MetalInfoDatabase.getSpreadsheetDataForSet("Ender"), enderTab);
         utilitySet = new MetalSet("Utility", MetalInfoDatabase.getSpreadsheetDataForSet("Utility"), utilityTab);
 
-        dustIron = new ItemMetallurgy(ironDustID).setTextureName("Metallurgy:Vanilla/IronDust").setUnlocalizedName("Metallurgy:Vanilla/IronDust")
-                .setCreativeTab(CreativeTabs.tabMaterials);
-        dustGold = new ItemMetallurgy(goldDustID).setTextureName("Metallurgy:Vanilla/GoldDust").setUnlocalizedName("Metallurgy:Vanilla/GoldDust")
-                .setCreativeTab(CreativeTabs.tabMaterials);
-
+        dustIron = new ItemMetallurgy(ironDustID).setTextureName("Metallurgy:Vanilla/IronDust").setUnlocalizedName("Metallurgy:Vanilla/IronDust").setCreativeTab(CreativeTabs.tabMaterials);
+        dustGold = new ItemMetallurgy(goldDustID).setTextureName("Metallurgy:Vanilla/GoldDust").setUnlocalizedName("Metallurgy:Vanilla/GoldDust").setCreativeTab(CreativeTabs.tabMaterials);
+        GameRegistry.registerItem(dustIron, dustIron.getUnlocalizedName());
+        GameRegistry.registerItem(dustGold, dustGold.getUnlocalizedName());
+        
         if (isSetEnabled("Utility"))
         {
             utilityConfig.load();

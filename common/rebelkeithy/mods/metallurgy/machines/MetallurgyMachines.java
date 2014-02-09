@@ -379,6 +379,7 @@ public class MetallurgyMachines
         LanguageRegistry.addName(new ItemStack(coloredGlass, 1, 7), "White Glass");
 
         glassDust = new ItemGlassDust(ConfigMachines.glassDustID).setUnlocalizedName("M3GlassDust").setCreativeTab(machineTab);
+        GameRegistry.registerItem(glassDust, glassDust.getUnlocalizedName());
         LanguageRegistry.addName(new ItemStack(glassDust, 1, 0), "Glass Dust");
         LanguageRegistry.addName(new ItemStack(glassDust, 1, 1), "Red Glass Dust");
         LanguageRegistry.addName(new ItemStack(glassDust, 1, 2), "Green Glass Dust");
@@ -390,6 +391,7 @@ public class MetallurgyMachines
         LanguageRegistry.addName(new ItemStack(glassDust, 1, 8), "White Glass Dust");
         
         sawDust = new ItemMetallurgy(ConfigMachines.sawDustID).setTextureName("Metallurgy:machines/SawDust").setUnlocalizedName("Metallurgy:machines/SawDust").setCreativeTab(machineTab);
+        GameRegistry.registerItem(sawDust, sawDust.getUnlocalizedName());
         LanguageRegistry.addName(new ItemStack(sawDust), "Saw Dust");
         GameRegistry.addSmelting(sawDust.itemID, new ItemStack(Item.coal, 1,1), 0.15F);
     }
@@ -414,10 +416,13 @@ public class MetallurgyMachines
         coin = new ItemMetallurgy(ConfigMachines.coinID).setTextureName("Metallurgy:Precious/coin").setUnlocalizedName("Metallurgy:Precious/coin").setCreativeTab(machineTab);
         stack = new ItemMetallurgy(ConfigMachines.stackID).setTextureName("Metallurgy:Precious/ctack").setUnlocalizedName("Metallurgy:Precious/ctack").setCreativeTab(machineTab);
         bag = new ItemMetallurgy(ConfigMachines.coinBagID).setTextureName("Metallurgy:Precious/bag").setUnlocalizedName("Metallurgy:Precious/bag").setCreativeTab(machineTab);
-        bullion = new ItemMetallurgy(ConfigMachines.bullionID).setTextureName("Metallurgy:Precious/bullion").setUnlocalizedName("Metallurgy:Precious/bullion")
-                .setCreativeTab(machineTab);
-        goldCog = new ItemMetallurgy(ConfigMachines.goldCogID).setTextureName("Metallurgy:Precious/goldCog").setUnlocalizedName("Metallurgy:Precious/goldCog")
-                .setCreativeTab(machineTab);
+        bullion = new ItemMetallurgy(ConfigMachines.bullionID).setTextureName("Metallurgy:Precious/bullion").setUnlocalizedName("Metallurgy:Precious/bullion").setCreativeTab(machineTab);
+        goldCog = new ItemMetallurgy(ConfigMachines.goldCogID).setTextureName("Metallurgy:Precious/goldCog").setUnlocalizedName("Metallurgy:Precious/goldCog").setCreativeTab(machineTab);
+        GameRegistry.registerItem(coin   , coin   .getUnlocalizedName());
+        GameRegistry.registerItem(stack  , stack  .getUnlocalizedName());
+        GameRegistry.registerItem(bag    , bag    .getUnlocalizedName());
+        GameRegistry.registerItem(bullion, bullion.getUnlocalizedName());
+        GameRegistry.registerItem(goldCog, goldCog.getUnlocalizedName());
         LanguageRegistry.addName(coin, "Coin");
         LanguageRegistry.addName(stack, "Stack");
         LanguageRegistry.addName(bag, "Bag");
